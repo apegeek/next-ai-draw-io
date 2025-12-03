@@ -3,8 +3,8 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 
 export const metadata: Metadata = {
-    title: "About - AI-Powered Diagram Generator | Next AI Draw.io",
-    description: "Learn about Next AI Draw.io, a free AI-powered diagram creation tool. Create AWS architecture diagrams, flowcharts, and UML diagrams using Claude Sonnet and GPT-4. No login required.",
+    title: "About - AI-Powered Diagram Generator | Hopechart AI",
+    description: "Learn about Hopechart AI, a free AI-powered diagram creation tool. Create AWS architecture diagrams, flowcharts, and UML diagrams using Claude Sonnet and GPT-4. No login required.",
     keywords: ["about AI diagram generator", "diagram tool features", "how to create diagrams", "AI drawing tool capabilities", "draw.io integration"],
 };
 
@@ -16,7 +16,7 @@ export default function About() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex items-center justify-between">
                         <Link href="/" className="text-xl font-bold text-gray-900 hover:text-gray-700">
-                            Next AI Draw.io
+                            Hopechart AI
                         </Link>
                         <nav className="flex items-center gap-6 text-sm">
                             <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
@@ -54,10 +54,10 @@ export default function About() {
 
                     {/* Introduction */}
                     <section className="mb-12">
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-4">What is Next AI Draw.io?</h2>
+                        <h2 className="text-2xl font-semibold text-gray-900 mb-4">What is Hopechart AI?</h2>
                         <div className="prose prose-lg max-w-none text-gray-700">
                             <p className="mb-4">
-                                <strong>Next AI Draw.io</strong> is a free, AI-powered diagram creation tool that integrates seamlessly with draw.io.
+                                <strong>Hopechart AI</strong> is a free, AI-powered diagram creation tool that integrates seamlessly with draw.io.
                                 Generate AWS architecture diagrams, flowcharts, UML diagrams, and technical documentation diagrams using natural language
                                 prompts. No login required, no installation needed—start creating professional diagrams instantly in your browser.
                             </p>
@@ -68,7 +68,7 @@ export default function About() {
                             </p>
                             <p>
                                 Whether you're a software architect designing system infrastructure, a developer documenting APIs, a business analyst creating
-                                process flows, or a student working on technical assignments, Next AI Draw.io makes diagram creation fast, accurate, and effortless.
+                                process flows, or a student working on technical assignments, Hopechart AI makes diagram creation fast, accurate, and effortless.
                             </p>
                         </div>
                     </section>
@@ -195,7 +195,7 @@ export default function About() {
 
                     {/* How It Works */}
                     <section className="mb-12 bg-white p-8 rounded-lg border border-gray-200">
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-6">How to Use Next AI Draw.io</h2>
+                        <h2 className="text-2xl font-semibold text-gray-900 mb-6">How to Use Hopechart AI</h2>
                         <div className="space-y-6">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">
@@ -253,7 +253,7 @@ export default function About() {
 
                     {/* Benefits */}
                     <section className="mb-12">
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Why Choose Next AI Draw.io?</h2>
+                        <h2 className="text-2xl font-semibold text-gray-900 mb-6">Why Choose Hopechart AI?</h2>
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0 text-blue-600 text-2xl mr-3">⚡</div>
@@ -322,7 +322,7 @@ export default function About() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="text-center text-gray-600 text-sm">
                         <p className="mb-2">
-                            Next AI Draw.io - Free AI-Powered Diagram Generator
+                            Hopechart AI - Free AI-Powered Diagram Generator
                         </p>
                         <p>
                             Perfect for developers, architects, students, and business analysts.

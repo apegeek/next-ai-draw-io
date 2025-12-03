@@ -10,6 +10,10 @@
 !.yarn/releases
 !.yarn/versions
 
+# local env files
+.env*.local
+.env
+
 # testing
 /coverage
 
@@ -22,6 +26,7 @@
 
 # misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # debug
@@ -30,14 +35,23 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# lock files (using npm)
+yarn.lock
+pnpm-lock.yaml
+
+# custom
 push-via-ec2.sh
 .claude/settings.local.json

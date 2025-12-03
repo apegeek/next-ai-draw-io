@@ -1,4 +1,4 @@
-# Next AI Draw.io
+# Hopechart AI
 
 <div align="center">
 
@@ -80,10 +80,10 @@ Diagrams are represented as XML that can be rendered in draw.io. The AI processe
 
 ## Multi-Provider Support
 
--   AWS Bedrock (default)
--   OpenAI / OpenAI-compatible APIs (via `OPENAI_BASE_URL`)
+-   AWS Bedrock (Default)
+-   OpenAI / OpenAI Compatible API (via `OPENAI_BASE_URL`)
 -   Anthropic
--   Google AI
+-   Google AI (Gemini)
 -   Azure OpenAI
 -   Ollama
 -   OpenRouter

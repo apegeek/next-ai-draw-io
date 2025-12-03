@@ -1,4 +1,4 @@
-# Next AI Draw.io
+# Hopechart AI
 
 <div align="center">
 
@@ -83,7 +83,7 @@ https://github.com/user-attachments/assets/b2eef5f3-b335-4e71-a755-dc2e80931979
 -   AWS Bedrock（默认）
 -   OpenAI / OpenAI兼容API（通过 `OPENAI_BASE_URL`）
 -   Anthropic
--   Google AI
+-   Google AI (Gemini)
 -   Azure OpenAI
 -   Ollama
 -   OpenRouter
@@ -120,7 +120,7 @@ cp env.example .env.local
 
 编辑 `.env.local` 并配置您选择的提供商：
 
--   将 `AI_PROVIDER` 设置为您选择的提供商（bedrock, openai, anthropic, google, azure, ollama, openrouter, deepseek）
+-   将 `AI_PROVIDER` 设置为您选择的提供商（bedrock, openai, anthropic, google, gemini, azure, ollama, openrouter, deepseek）
 -   将 `AI_MODEL` 设置为您要使用的特定模型
 -   添加您的提供商所需的API密钥
 

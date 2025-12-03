@@ -186,9 +186,7 @@ export function ChatInput({
                 onChange={onChange}
                 onKeyDown={handleKeyDown}
                 onPaste={handlePaste}
-                placeholder="Describe what changes you want to make to the diagram
-                or upload(paste) an image to replicate a diagram.
-                 (Press Cmd/Ctrl + Enter to send)"
+                placeholder="请描述您想要对图表进行的更改，或者上传（粘贴）一张图片来复制图表。（按 Cmd/Ctrl + Enter 发送）"
                 disabled={isDisabled}
                 aria-label="Chat input"
                 className="min-h-[80px] resize-none transition-all duration-200 px-1 py-0"
@@ -272,7 +270,7 @@ export function ChatInput({
                     ) : (
                         <Send className="mr-2 h-4 w-4" />
                     )}
-                    Send
+                    发送
                 </Button>
             </div>
         </form>

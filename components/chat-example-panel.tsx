@@ -44,40 +44,40 @@ export default function ExamplePanel({
         <div className="px-4 py-2 border-t border-b border-gray-100">
             <p className="text-sm text-gray-500 mb-2">
                 {" "}
-                Start a conversation to generate or modify diagrams.
+                开始对话以生成或修改图表。
             </p>
             <p className="text-sm text-gray-500 mb-2">
                 {" "}
-                You can also upload images to use as references.
+                您也可以上传图片作为参考。
             </p>
             <p className="text-sm text-gray-500 mb-2">
-                Try these examples{" "}
-                <span className="text-xs text-gray-400">(cached for instant response)</span>:
+                尝试这些示例{" "}
+                <span className="text-xs text-gray-400">（已缓存，可即时响应）</span>:
             </p>
             <div className="flex flex-wrap gap-5">
                 <button
                     className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-1 px-2 rounded"
                     onClick={() => setInput("Give me a **animated connector** diagram of transformer's architecture")}
                 >
-                    Draw diagram with Animated Connectors
+                    绘制带有动画连接线的图表
                 </button>
                 <button
                     className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-1 px-2 rounded"
                     onClick={handleReplicateArchitecture}
                 >
-                    Create AWS architecture
+                    创建 AWS 架构图
                 </button>
                 <button
                     className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-1 px-2 rounded"
                     onClick={handleReplicateFlowchart}
                 >
-                    Replicate flowchart
+                    复刻流程图
                 </button>
                 <button
                     className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-1 px-2 rounded"
                     onClick={() => setInput("Draw a cat for me")}
                 >
-                    Draw a cat
+                    画一只猫
                 </button>
             </div>
         </div>

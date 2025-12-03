@@ -6,6 +6,14 @@ import { azure, createAzure } from '@ai-sdk/azure';
 import { ollama, createOllama } from 'ollama-ai-provider-v2';
 import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 import { deepseek, createDeepSeek } from '@ai-sdk/deepseek';
+import { setGlobalDispatcher, ProxyAgent } from 'undici';
+
+// Configure proxy if environment variables are set
+const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+if (proxyUrl) {
+  const dispatcher = new ProxyAgent({ uri: proxyUrl });
+  setGlobalDispatcher(dispatcher);
+}
 
 export type ProviderName =
   | 'bedrock'
@@ -15,7 +23,8 @@ export type ProviderName =
   | 'azure'
   | 'ollama'
   | 'openrouter'
-  | 'deepseek';
+  | 'deepseek'
+  | 'gemini';
 
 interface ModelConfig {
   model: any;
@@ -44,6 +53,7 @@ function validateProviderCredentials(provider: ProviderName): void {
     openai: 'OPENAI_API_KEY',
     anthropic: 'ANTHROPIC_API_KEY',
     google: 'GOOGLE_GENERATIVE_AI_API_KEY',
+    gemini: 'GOOGLE_GENERATIVE_AI_API_KEY',
     azure: 'AZURE_API_KEY',
     ollama: null, // No credentials needed for local Ollama
     openrouter: 'OPENROUTER_API_KEY',
@@ -131,6 +141,7 @@ export function getAIModel(): ModelConfig {
       break;
 
     case 'google':
+    case 'gemini':
       if (process.env.GOOGLE_BASE_URL) {
         const customGoogle = createGoogleGenerativeAI({
           apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
@@ -187,7 +198,7 @@ export function getAIModel(): ModelConfig {
 
     default:
       throw new Error(
-        `Unknown AI provider: ${provider}. Supported providers: bedrock, openai, anthropic, google, azure, ollama, openrouter, deepseek`
+        `Unknown AI provider: ${provider}. Supported providers: bedrock, openai, anthropic, google, gemini, azure, ollama, openrouter, deepseek`
       );
   }
 

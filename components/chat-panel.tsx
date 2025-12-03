@@ -228,36 +228,10 @@ Please retry with an adjusted search pattern or use display_diagram if retries a
         <Card className="h-full flex flex-col rounded-none py-0 gap-0">
             <CardHeader className="p-4 flex flex-row justify-between items-center">
                 <div className="flex items-center gap-3">
-                    <CardTitle>Next-AI-Drawio</CardTitle>
-                    <Link href="/about" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                        About
-                    </Link>
+                    <CardTitle>Hopechart AI</CardTitle>
+                    
                 </div>
-                <div className="flex items-center gap-2">
-                    <iframe
-                        src="https://github.com/sponsors/DayuanJiang/button"
-                        title="Sponsor DayuanJiang"
-                        height="32"
-                        width="114"
-                        style={{ border: 0, borderRadius: 6 }}
-                    />
-                    <a
-                        href="https://github.com/DayuanJiang/next-ai-draw-io"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
-                    >
-                        <FaGithub className="w-6 h-6" />
-                    </a>
-                    <ButtonWithTooltip
-                        tooltipContent="Hide chat panel (Ctrl+B)"
-                        variant="ghost"
-                        size="icon"
-                        onClick={onToggleVisibility}
-                    >
-                        <PanelRightClose className="h-5 w-5" />
-                    </ButtonWithTooltip>
-                </div>
+                
             </CardHeader>
             <CardContent className="flex-grow overflow-hidden px-2">
                 <ChatMessageDisplay
