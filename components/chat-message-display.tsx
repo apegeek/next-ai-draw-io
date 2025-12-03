@@ -6,7 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import ExamplePanel from "./chat-example-panel";
 import { UIMessage } from "ai";
 import { convertToLegalXml, replaceNodes } from "@/lib/utils";
-import { Copy, Check, X } from "lucide-react";
+import { Copy, Check, X, Loader2 } from "lucide-react";
 
 import { useDiagram } from "@/contexts/diagram-context";
 
@@ -21,6 +21,7 @@ const getMessageTextContent = (message: UIMessage): string => {
 interface ChatMessageDisplayProps {
     messages: UIMessage[];
     error?: Error | null;
+    isLoading?: boolean;
     setInput: (input: string) => void;
     setFiles: (files: File[]) => void;
 }
@@ -28,6 +29,7 @@ interface ChatMessageDisplayProps {
 export function ChatMessageDisplay({
     messages,
     error,
+    isLoading,
     setInput,
     setFiles,
 }: ChatMessageDisplayProps) {
@@ -249,6 +251,16 @@ export function ChatMessageDisplay({
                     Error: {error.message}
                 </div>
             )}
+            {isLoading &&
+                messages.length > 0 &&
+                messages[messages.length - 1].role === "user" && (
+                    <div className="mb-4 flex justify-start">
+                        <div className="bg-muted text-muted-foreground px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            AI 正在思考...
+                        </div>
+                    </div>
+                )}
             <div ref={messagesEndRef} />
         </ScrollArea>
     );

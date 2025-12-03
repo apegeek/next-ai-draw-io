@@ -74,9 +74,10 @@ export default function ChatPanel({ isVisible, onToggleVisibility }: ChatPanelPr
             async onToolCall({ toolCall }) {
                 if (toolCall.toolName === "display_diagram") {
                     // Diagram is handled streamingly in the ChatMessageDisplay component
+                    // We just need to acknowledge the tool call here
                     addToolResult({
-                        tool: "display_diagram",
                         toolCallId: toolCall.toolCallId,
+                        tool: "display_diagram",
                         output: "Successfully displayed the diagram.",
                     });
                 } else if (toolCall.toolName === "edit_diagram") {
@@ -96,30 +97,39 @@ export default function ChatPanel({ isVisible, onToggleVisibility }: ChatPanelPr
                         // Load the edited diagram
                         onDisplayChart(editedXml);
 
+                        const result = `Successfully applied ${edits.length} edit(s) to the diagram.`;
                         addToolResult({
-                            tool: "edit_diagram",
                             toolCallId: toolCall.toolCallId,
-                            output: `Successfully applied ${edits.length} edit(s) to the diagram.`,
+                            tool: "edit_diagram",
+                            output: result,
                         });
                     } catch (error) {
                         console.error("Edit diagram failed:", error);
 
                         const errorMessage = error instanceof Error ? error.message : String(error);
-
-                        // Provide detailed error with current diagram XML
-                        addToolResult({
-                            tool: "edit_diagram",
-                            toolCallId: toolCall.toolCallId,
-                            output: `Edit failed: ${errorMessage}
+                        const errorResult = `Edit failed: ${errorMessage}
 
 Current diagram XML:
 \`\`\`xml
 ${currentXml}
 \`\`\`
 
-Please retry with an adjusted search pattern or use display_diagram if retries are exhausted.`,
+Please retry with an adjusted search pattern or use display_diagram if retries are exhausted.`;
+
+                        // Provide detailed error with current diagram XML
+                        addToolResult({
+                            toolCallId: toolCall.toolCallId,
+                            tool: "edit_diagram",
+                            output: errorResult,
                         });
                     }
+                } else {
+                    const errorResult = "Tool execution failed: Unknown tool.";
+                    addToolResult({
+                        toolCallId: toolCall.toolCallId,
+                        tool: toolCall.toolName,
+                        output: errorResult,
+                    });
                 }
             },
             onError: (error) => {
@@ -237,6 +247,7 @@ Please retry with an adjusted search pattern or use display_diagram if retries a
                 <ChatMessageDisplay
                     messages={messages}
                     error={error}
+                    isLoading={status === "submitted" || status === "streaming"}
                     setInput={setInput}
                     setFiles={handleFileChange}
                 />
